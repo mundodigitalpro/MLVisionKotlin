@@ -1,0 +1,7 @@
+<!-- Example for imageview_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/white"/>
+    <corners android:radius="16dp"/>
+</shape>
+
+    <!-- Modify as necessary for scrollview_background.xml with different corner radius or colors -->

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MLVisionKotlin</string>
+    <string name="subir_imagen">SUBIR IMAGEN</string>
+    <string name="aqu_se_mostrar_el_texto_reconocido">AQUÍ SE MOSTRARÁ EL TEXTO RECONOCIDO</string>
+</resources>
