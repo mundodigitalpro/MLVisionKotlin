@@ -8,36 +8,37 @@
     android:background="@color/design_default_color_background">
 
     <ImageView
-        android:id="@+id/image_view_id"
+        android:id="@+id/imageViewId"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollViewResultText"
         android:background="@drawable/imageview_background"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ScrollView
-        android:id="@+id/scroll_view_result_text"
+        android:id="@+id/scrollViewResultText"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:padding="8dp"
         android:background="@drawable/scrollview_background"
-        app:layout_constraintTop_toBottomOf="@id/image_view_id"
-        app:layout_constraintBottom_toTopOf="@id/read_text_button_id"
+        app:layout_constraintTop_toBottomOf="@id/imageViewId"
+        app:layout_constraintBottom_toTopOf="@id/readTextButtonId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/result_text"
+            android:id="@+id/resultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="AQUÍ SE MOSTRARÁ EL TEXTO RECONOCIDO"
@@ -47,22 +48,37 @@
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/read_text_button_id"
+        android:id="@+id/readTextButtonId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="SUBIR IMAGEN"
         android:textAllCaps="false"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:padding="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         app:cornerRadius="28dp"
         app:backgroundTint="@color/cardview_dark_background"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/scroll_view_result_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/captureImageButtonId"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/captureImageButtonId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="CAPTURAR IMAGEN"
+        android:textAllCaps="false"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="28dp"
+        app:backgroundTint="@color/cardview_dark_background"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/readTextButtonId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
