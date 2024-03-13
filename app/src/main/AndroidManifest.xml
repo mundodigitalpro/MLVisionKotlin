@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.camera.any" />
 
 
@@ -36,5 +35,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
+
+
+    <queries>
+        <!-- Para interactuar con cámaras -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
 
 </manifest>
