@@ -1,84 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:padding="24dp"
     android:background="@color/design_default_color_background">
 
+    <!-- ImageView en la parte superior del RelativeLayout -->
     <ImageView
         android:id="@+id/imageViewId"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/scrollViewResultText"
         android:background="@drawable/imageview_background"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp" />
 
+    <!-- ScrollView para el texto, colocado debajo de ImageView y encima de los botones -->
     <ScrollView
         android:id="@+id/scrollViewResultText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageViewId"
+        android:layout_above="@+id/buttonContainer"
         android:padding="8dp"
-        android:background="@drawable/scrollview_background"
-        app:layout_constraintTop_toBottomOf="@id/imageViewId"
-        app:layout_constraintBottom_toTopOf="@id/readTextButtonId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:background="@drawable/scrollview_background">
 
         <TextView
             android:id="@+id/resultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AQUÍ SE MOSTRARÁ EL TEXTO RECONOCIDO"
+            android:text="@string/here_the_recognized_text_will_be_displayed"
             android:textAlignment="center"
             android:textColor="@android:color/black" />
 
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/readTextButtonId"
-        android:layout_width="0dp"
+    <!-- Contenedor LinearLayout para los tres botones -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SUBIR IMAGEN"
-        android:textAllCaps="false"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="28dp"
-        app:backgroundTint="@color/cardview_dark_background"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/captureImageButtonId"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.45" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/captureImageButtonId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="CAPTURAR IMAGEN"
-        android:textAllCaps="false"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="28dp"
-        app:backgroundTint="@color/cardview_dark_background"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/readTextButtonId"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.45" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/readTextButtonId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="90dp"
+            android:text="@string/upload"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_marginEnd="8dp"
+            app:cornerRadius="28dp"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:textColor="@android:color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/captureImageButtonId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="90dp"
+            android:text="@string/capture"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_marginEnd="8dp"
+            app:cornerRadius="28dp"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:textColor="@android:color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shareButtonId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="90dp"
+            android:text="@string/share"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:cornerRadius="28dp"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>
