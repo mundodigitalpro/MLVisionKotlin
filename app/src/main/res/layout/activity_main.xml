@@ -11,6 +11,7 @@
         android:id="@+id/imageViewId"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:contentDescription="@string/scanned_image"
         android:scaleType="centerCrop"
         android:background="@drawable/imageview_background"
         android:layout_alignParentTop="true"

@@ -6,4 +6,5 @@
     <string name="upload">Upload</string>
     <string name="capture">Capture</string>
     <string name="share">Share</string>
+    <string name="scanned_image">scanned image</string>
 </resources>
