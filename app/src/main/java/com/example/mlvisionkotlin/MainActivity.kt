@@ -40,6 +40,15 @@ class MainActivity : AppCompatActivity() {
         setupReadTextButtonListener() // Configura el listener del botón para leer texto
         setupCaptureImageButtonListener() // Configura el listener del botón para capturar imágenes
         setupShareButtonListener() //Configura el listener del botón para compartir texto
+
+        binding.iaButtonId.setOnClickListener {
+            val scannedText = binding.resultText.text.toString()
+            val intent = Intent(this, AssistantActivity::class.java)
+            intent.putExtra("scannedText", scannedText)
+            startActivity(intent)
+        }
+
+
     }
 
     // Inicializa el lanzador para seleccionar imágenes desde el almacenamiento del dispositivo

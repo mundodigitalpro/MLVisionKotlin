@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -56,5 +58,9 @@ dependencies {
     implementation (libs.androidx.camera.camera2)
     implementation (libs.androidx.camera.lifecycle)
     implementation (libs.androidx.camera.view)
+
+    //okhttp
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.12")
+    implementation("com.google.code.gson:gson:2.9.1")
 
 }
