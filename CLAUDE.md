@@ -1,0 +1,89 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+MLVisionKotlin is an Android application that combines Google ML Kit text recognition with AI assistant capabilities. The app captures or selects images to extract text, then allows users to interact with an AI assistant about the scanned content.
+
+## Architecture
+
+### Core Components
+
+- **MainActivity.kt**: Main screen handling image capture/selection and text recognition using Google ML Kit
+- **AssistantActivity.kt**: AI assistant interface that communicates with Groq API for text analysis
+- **ViewBinding**: Used throughout for efficient view management
+- **Navigation**: Uses Navigation Components with nav_graph.xml
+
+### Key Technologies
+
+- **Google ML Kit**: Text recognition from images (com.google.mlkit:text-recognition:16.0.0)
+- **CameraX**: Camera functionality (androidx.camera:*)
+- **OkHttp**: HTTP client for API communication (5.0.0-alpha.12)
+- **Gson**: JSON parsing for API responses (2.9.1)
+- **File Provider**: Secure file sharing for camera captured images
+
+## Build Configuration
+
+### Gradle Commands
+
+```bash
+# Build the project
+./gradlew build
+
+# Run debug build
+./gradlew assembleDebug
+
+# Run tests
+./gradlew test
+
+# Run instrumented tests
+./gradlew connectedAndroidTest
+```
+
+### SDK Configuration
+
+- **compileSdk**: 34
+- **minSdk**: 24
+- **targetSdk**: 34
+- **Kotlin**: 1.9.23
+- **AGP**: 8.3.2
+
+## Key Features
+
+### Text Recognition Flow
+
+1. User captures image via camera or selects from gallery
+2. Image processed through Google ML Kit Text Recognition
+3. Extracted text displayed in UI
+4. Text can be shared or sent to AI assistant
+
+### AI Assistant Integration
+
+- Uses Groq API (llama3-8b-8192 model) for text analysis
+- Maintains conversation history
+- Typewriter effect for response display
+- Automatic initial query with scanned text
+
+## Development Notes
+
+### Permissions
+
+The app requires:
+- `CAMERA`: For image capture functionality
+- Camera permissions are handled with runtime permission requests
+
+### File Management
+
+- Uses FileProvider for secure camera image storage
+- Temporary files created in `getExternalFilesDir(Environment.DIRECTORY_PICTURES)`
+- Images stored with timestamp naming: `JPEG_yyyyMMdd_HHmmss_*.jpg`
+
+### API Integration
+
+The AssistantActivity contains hardcoded API configuration:
+- API key placeholder: "groqapikey" (needs replacement)
+- Model: "llama3-8b-8192"
+- Endpoint: "https://api.groq.com/openai/v1/chat/completions"
+
+⚠️ **Security Note**: The Groq API key is currently hardcoded and should be moved to a secure configuration method before production use.
