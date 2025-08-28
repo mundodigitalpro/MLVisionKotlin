@@ -4,27 +4,81 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
-        <aapt:attr name="android:fillColor">
-            <gradient
-                android:endX="85.84757"
-                android:endY="92.4963"
-                android:startX="42.9492"
-                android:startY="49.59793"
-                android:type="linear">
-                <item
-                    android:color="#44000000"
-                    android:offset="0.0" />
-                <item
-                    android:color="#00000000"
-                    android:offset="1.0" />
-            </gradient>
-        </aapt:attr>
-    </path>
+    
+    <!-- Transparent background - color comes from ic_launcher_background -->
+    
+    <!-- Camera body -->
     <path
         android:fillColor="#FFFFFF"
-        android:fillType="nonZero"
-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
-        android:strokeWidth="1"
-        android:strokeColor="#00000000" />
+        android:pathData="M25,35 L83,35 C86.31,35 89,37.69 89,41 L89,67 C89,70.31 86.31,73 83,73 L25,73 C21.69,73 19,70.31 19,67 L19,41 C19,37.69 21.69,35 25,35 Z" />
+    
+    <!-- Camera lens -->
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M54,45 C60.63,45 66,50.37 66,57 C66,63.63 60.63,69 54,69 C47.37,69 42,63.63 42,57 C42,50.37 47.37,45 54,45 Z" />
+        
+    <!-- Camera lens inner -->
+    <path
+        android:fillColor="#64748B"
+        android:pathData="M54,49 C58.42,49 62,52.58 62,57 C62,61.42 58.42,65 54,65 C49.58,65 46,61.42 46,57 C46,52.58 49.58,49 54,49 Z" />
+    
+    <!-- Camera viewfinder -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M75,39 L81,39 C82.1,39 83,39.9 83,41 L83,43 C83,44.1 82.1,45 81,45 L75,45 C73.9,45 73,44.1 73,43 L73,41 C73,39.9 73.9,39 75,39 Z" />
+        
+    <!-- Text lines representing OCR -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M22,78 L50,78"
+        android:strokeWidth="2"
+        android:strokeColor="#10B981" />
+        
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M22,83 L44,83"
+        android:strokeWidth="2"
+        android:strokeColor="#10B981" />
+        
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M22,88 L46,88"
+        android:strokeWidth="2"
+        android:strokeColor="#10B981" />
+        
+    <!-- AI brain/scan lines -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M58,78 L86,78"
+        android:strokeWidth="2"
+        android:strokeColor="#34D399" />
+        
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M62,83 L82,83"
+        android:strokeWidth="2"
+        android:strokeColor="#34D399" />
+        
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M60,88 L84,88"
+        android:strokeWidth="2"
+        android:strokeColor="#34D399" />
+        
+    <!-- ML Vision focus indicator -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,20 L38,20 L38,22 L32,22 L32,28 L30,28 Z" />
+        
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,20 L76,28 L74,28 L74,22 L70,22 L70,20 Z" />
+        
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,86 L30,94 L38,94 L38,92 L32,92 L32,86 Z" />
+        
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M74,86 L74,92 L70,92 L70,94 L76,94 L76,86 Z" />
 </vector>
