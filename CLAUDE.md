@@ -4,17 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MLVisionKotlin is an Android application that combines Google ML Kit text recognition with AI assistant capabilities. The app captures or selects images to extract text, then allows users to interact with an AI assistant about the scanned content. Features secure API key management and an intuitive chat interface with typewriter effects.
+MLVisionKotlin is an Android application that combines Google ML Kit text recognition with AI assistant capabilities. The app captures or selects images to extract text, then allows users to interact with an AI assistant about the scanned content. Features secure API key management, an intuitive chat interface with typewriter effects, and a modern Material Design 3 interface optimized for user experience.
 
 ## Architecture
 
 ### Core Components
 
-- **MainActivity.kt**: Main screen handling image capture/selection and text recognition using Google ML Kit
+- **MainActivity.kt**: Main screen with modern Material Design 3 interface, handling image capture/selection and text recognition using Google ML Kit
 - **AssistantActivity.kt**: AI assistant interface with secure API key management, chat functionality, and Groq API integration
 - **ViewBinding**: Used throughout for efficient view management
 - **Navigation**: Uses Navigation Components with nav_graph.xml
 - **SharedPreferences**: Secure local storage for API key management
+- **UI Components**: Custom drawables, modern color palette, and responsive layout system
 
 ### Key Technologies
 
@@ -26,6 +27,8 @@ MLVisionKotlin is an Android application that combines Google ML Kit text recogn
 - **SharedPreferences**: Secure local storage for user configuration
 - **AlertDialog**: User-friendly API key management interface
 - **File Provider**: Secure file sharing for camera captured images
+- **Material Design 3**: Modern design system with updated components and theming
+- **CardView**: Elevated cards with shadows for visual organization and hierarchy
 
 ## Build Configuration
 
@@ -110,3 +113,48 @@ The AssistantActivity implements secure API configuration:
 - **Confirmation dialogs**: Safe deletion with confirmation prompts
 
 ✅ **Security Improvement**: API keys are no longer hardcoded and are managed securely by end users.
+
+## UI/UX Design System
+
+### Modern Material Design Implementation
+
+The application implements a comprehensive Material Design 3 interface with the following characteristics:
+
+#### Color System
+- **Primary Colors**: Indigo (#6366F1) with darker variant (#4F46E5) and light variant (#818CF8)
+- **Secondary Colors**: Emerald green (#10B981) with variants for different states
+- **Accent Colors**: Orange/yellow (#F59E0B) for special actions and warnings
+- **Background Colors**: Light grays (#F8FAFC, #F1F5F9) with white surfaces
+- **Text Hierarchy**: Dark slate (#1E293B) for primary text, lighter variants for secondary content
+
+#### Visual Components
+- **Custom Drawables**: 5 specialized drawable files for buttons and backgrounds
+  - `button_primary.xml`: Gradient buttons with shadow effects
+  - `button_secondary.xml`: Alternative button styling
+  - `button_accent.xml`: Special action button styling
+  - `card_background.xml`: Elevated card backgrounds with shadows
+  - `modern_imageview_background.xml`: Image container with placeholder state
+
+#### Layout Structure
+- **MainActivity**: LinearLayout-based design with card-based organization
+  - Header section with app branding and description
+  - Image card (220dp height) with placeholder overlay system
+  - Expanded text result card (2x weight for maximum text visibility)
+  - Two-row button layout organized by action priority
+- **AssistantActivity**: Professional chat interface with header context
+  - Elevated conversation card with chat header
+  - Modern input field with rounded container
+  - Visible API key management button
+
+#### Design Principles
+- **Spacing System**: Consistent 16dp-20dp margins with optimized vertical distribution
+- **Elevation Hierarchy**: 4dp-8dp elevations for depth and visual organization
+- **Border Radius**: 12dp-20dp rounded corners for modern appearance
+- **Typography**: Structured text sizes from 14sp-28sp with proper line spacing
+
+#### User Experience Enhancements
+- **Visual Feedback**: Button press states and interactive elements
+- **Empty States**: Placeholder content with helpful instructions
+- **Text Selection**: Selectable text areas for copy functionality
+- **Intuitive Icons**: Emoji-based button icons for immediate recognition
+- **Optimized Flow**: Automatic overlay hiding when images are loaded

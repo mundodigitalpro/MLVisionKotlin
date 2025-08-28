@@ -12,6 +12,8 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 - **Asistente IA**: Integración con Groq API (llama-3.3-70b-versatile) para analizar y procesar el texto extraído con inteligencia artificial.
 - **Gestión segura de API keys**: Sistema de configuración y almacenamiento seguro de claves API en el dispositivo.
 - **Chat interactivo**: Interfaz de conversación con efecto de escritura automática (typewriter) para interacción natural con el asistente.
+- **Interfaz moderna**: Diseño Material Design 3 con paleta de colores moderna, gradientes y elevaciones.
+- **Experiencia optimizada**: Área de texto expandida, botones con iconos intuitivos y navegación fluida.
 - **Compartir texto**: Facilita compartir el texto reconocido con otras aplicaciones a través de una sencilla opción de compartir.
 
 ### Tecnologías
@@ -25,6 +27,8 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 - **CameraX**: Framework moderno para funcionalidades de cámara.
 - **SharedPreferences**: Almacenamiento seguro local para configuración del usuario.
 - **Navigation Components**: Sistema de navegación entre activities.
+- **Material Design 3**: Framework moderno de diseño con componentes actualizados.
+- **CardView**: Componentes de tarjeta con elevación y sombras para mejor organización visual.
 
 ### Requisitos
 
@@ -48,6 +52,26 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 2. **Interacción**: El asistente analizará automáticamente el texto extraído de las imágenes.
 3. **Chat**: Puedes hacer preguntas adicionales o solicitar análisis específicos del texto.
 4. **Gestión de API Key**: Usa el botón "⚙️ Gestionar API Key" para cambiar o eliminar tu clave API.
+
+### Diseño y Experiencia de Usuario
+
+#### Características de Diseño Moderno
+- **Paleta de colores**: Índigo vibrante (#6366F1) como color primario, verde esmeralda (#10B981) como secundario
+- **Gradientes y sombras**: Botones con efectos de profundidad y estados de presión interactivos  
+- **Material Design 3**: Componentes actualizados con bordes redondeados (12dp-20dp) y elevaciones progresivas
+- **Iconos intuitivos**: Emojis integrados en botones (📁 Upload, 📸 Capture, 📤 Share, 🤖 AI)
+
+#### Optimizaciones de Interfaz
+- **Área de texto expandida**: Espacio maximizado para visualización cómoda del texto reconocido
+- **Cards con elevación**: Organización visual clara con sombras suaves y fondos diferenciados
+- **Layout responsivo**: Diseño adaptado para diferentes tamaños de pantalla
+- **Estados visuales**: Placeholder animado cuando no hay imagen cargada
+
+#### Mejoras de Usabilidad
+- **Texto seleccionable**: Capacidad de copiar texto reconocido directamente
+- **Navegación fluida**: Transiciones suaves entre pantallas principales y asistente
+- **Feedback visual**: Estados de botones y confirmaciones de acciones
+- **Gestión intuitiva**: Acceso fácil a configuración de API key sin menús ocultos
 
 ### Configuración de Desarrollo
 
