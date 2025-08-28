@@ -226,7 +226,7 @@
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:layout_weight="1"
-                android:text="🤖 AI Assistant"
+                android:text="🤖 AI"
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 android:textStyle="bold"

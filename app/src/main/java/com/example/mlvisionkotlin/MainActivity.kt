@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 if (success) {
                     imageUri?.let { uri ->
                         binding.imageViewId.setImageURI(uri) // Muestra la imagen capturada
+                        binding.emptyStateOverlay.visibility = View.GONE // Oculta el placeholder
                         recognizeTextFromImage(uri) // Inicia el reconocimiento de texto en la imagen
                     }
                 } else {
@@ -188,6 +190,7 @@ class MainActivity : AppCompatActivity() {
         uri ?: return showToast("Image selection failed. Please try again.")
         imageUri = uri
         binding.imageViewId.setImageURI(uri) // Muestra la imagen seleccionada
+        binding.emptyStateOverlay.visibility = View.GONE // Oculta el placeholder
         recognizeTextFromImage(uri) // Inicia el reconocimiento de texto en la imagen seleccionada
     }
 
