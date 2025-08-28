@@ -15,7 +15,7 @@ MLVisionKotlin is an Android application that combines Google ML Kit text recogn
 - **ViewBinding**: Used throughout for efficient view management
 - **Navigation**: Uses Navigation Components with nav_graph.xml
 - **SharedPreferences**: Secure local storage for API key management
-- **UI Components**: Custom drawables, modern color palette, and responsive layout system
+- **UI Components**: Custom drawables, modern color palette, responsive layout system, and personalized app icon
 
 ### Key Technologies
 
@@ -134,6 +134,9 @@ The application implements a comprehensive Material Design 3 interface with the 
   - `button_accent.xml`: Special action button styling
   - `card_background.xml`: Elevated card backgrounds with shadows
   - `modern_imageview_background.xml`: Image container with placeholder state
+- **App Icon Design**: Custom vector-based launcher icon
+  - `ic_launcher_foreground.xml`: Camera with OCR text lines and AI processing indicators
+  - `ic_launcher_background.xml`: Gradient background matching app theme colors
 
 #### Layout Structure
 - **MainActivity**: LinearLayout-based design with card-based organization
@@ -158,3 +161,27 @@ The application implements a comprehensive Material Design 3 interface with the 
 - **Text Selection**: Selectable text areas for copy functionality
 - **Intuitive Icons**: Emoji-based button icons for immediate recognition
 - **Optimized Flow**: Automatic overlay hiding when images are loaded
+
+### App Icon Design System
+
+#### Icon Symbolism and Elements
+The custom app icon represents the core functionality of ML Vision through carefully designed visual elements:
+
+- **Camera Body**: White modern camera design representing image capture capability
+- **Camera Lens**: Realistic multi-layered lens (light gray outer, dark gray inner) for professional appearance  
+- **Viewfinder**: Small rectangular element indicating camera targeting functionality
+- **OCR Text Lines**: Green lines (#10B981) on the left representing recognized text output
+- **AI Processing Lines**: Lighter green lines (#34D399) on the right symbolizing intelligent analysis
+- **ML Vision Brackets**: Corner focus indicators (L-shaped brackets) representing precision targeting
+
+#### Technical Implementation
+- **Format**: Vector XML drawables for perfect scalability across all Android densities
+- **Structure**: Separate foreground and background for adaptive icon compatibility
+- **Size**: Standard 108dp adaptive icon format supporting round and square launchers
+- **Colors**: Consistent with app's Material Design 3 palette for brand coherence
+
+#### Background Design
+- **Primary Gradient**: Three-point gradient using app colors (#818CF8 → #6366F1 → #4F46E5)
+- **Geometric Accents**: Subtle semi-transparent squares for visual texture
+- **Corner Elements**: Green triangular accents matching secondary color theme
+- **Professional Appearance**: Clean, modern design suitable for app store presentation

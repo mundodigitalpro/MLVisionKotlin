@@ -14,6 +14,7 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 - **Chat interactivo**: Interfaz de conversación con efecto de escritura automática (typewriter) para interacción natural con el asistente.
 - **Interfaz moderna**: Diseño Material Design 3 con paleta de colores moderna, gradientes y elevaciones.
 - **Experiencia optimizada**: Área de texto expandida, botones con iconos intuitivos y navegación fluida.
+- **Icono personalizado**: Icono de app diseñado específicamente para ML Vision con elementos de cámara, texto OCR y procesamiento IA.
 - **Compartir texto**: Facilita compartir el texto reconocido con otras aplicaciones a través de una sencilla opción de compartir.
 
 ### Tecnologías
@@ -60,6 +61,7 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 - **Gradientes y sombras**: Botones con efectos de profundidad y estados de presión interactivos  
 - **Material Design 3**: Componentes actualizados con bordes redondeados (12dp-20dp) y elevaciones progresivas
 - **Iconos intuitivos**: Emojis integrados en botones (📁 Upload, 📸 Capture, 📤 Share, 🤖 AI)
+- **Icono de aplicación**: Diseño vectorial personalizado con cámara, líneas de texto OCR y elementos de IA
 
 #### Optimizaciones de Interfaz
 - **Área de texto expandida**: Espacio maximizado para visualización cómoda del texto reconocido
