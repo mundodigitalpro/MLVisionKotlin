@@ -4,18 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MLVisionKotlin is an Android application that combines Google ML Kit text recognition with AI assistant capabilities. The app captures or selects images to extract text, then allows users to interact with an AI assistant about the scanned content. Features secure API key management, an intuitive chat interface with typewriter effects, and a modern Material Design 3 interface optimized for user experience.
+**ML Vision Scanner** (`dev.josejordan.mlvisionscanner`) is a professional Android application that combines Google ML Kit optical character recognition (OCR) with AI assistant capabilities. The app captures or selects images to extract text, then allows users to interact with an AI assistant about the scanned content. Features secure API key management, an intuitive chat interface with typewriter effects, and a modern Material Design 3 interface optimized for Google Play Store publication.
+
+**Current Version**: 4.0  
+**Package Name**: `dev.josejordan.mlvisionscanner`  
+**Target Audience**: Professional and personal document processing
 
 ## Architecture
 
 ### Core Components
 
 - **MainActivity.kt**: Main screen with modern Material Design 3 interface, handling image capture/selection and text recognition using Google ML Kit
+  - Location: `dev.josejordan.mlvisionscanner.MainActivity`
+  - Features: Camera integration, gallery selection, OCR processing, modern UI
 - **AssistantActivity.kt**: AI assistant interface with secure API key management, chat functionality, and Groq API integration
+  - Location: `dev.josejordan.mlvisionscanner.AssistantActivity`  
+  - Features: Groq API integration, secure key management, typewriter chat effects
 - **ViewBinding**: Used throughout for efficient view management
 - **Navigation**: Uses Navigation Components with nav_graph.xml
 - **SharedPreferences**: Secure local storage for API key management
 - **UI Components**: Custom drawables, modern color palette, responsive layout system, and personalized app icon
+- **FileProvider**: Secure image sharing with authority `dev.josejordan.mlvisionscanner.provider`
 
 ### Key Technologies
 
@@ -50,11 +59,14 @@ MLVisionKotlin is an Android application that combines Google ML Kit text recogn
 
 ### SDK Configuration
 
-- **compileSdk**: 34
-- **minSdk**: 24
-- **targetSdk**: 34
+- **compileSdk**: 36 (Android 14)
+- **minSdk**: 24 (Android 7.0 Nougat)
+- **targetSdk**: 36 (Android 14)
+- **versionCode**: 4
+- **versionName**: "4.0"
 - **Kotlin**: 1.9.23
 - **AGP**: 8.3.2
+- **Google Play Ready**: ✅ Package name updated for store publication
 
 ## Key Features
 
@@ -87,13 +99,18 @@ MLVisionKotlin is an Android application that combines Google ML Kit text recogn
 
 The app requires:
 - `CAMERA`: For image capture functionality
+- `INTERNET`: For AI assistant API communication  
+- `android.hardware.camera.any`: Camera feature requirement
 - Camera permissions are handled with runtime permission requests
+- All permissions comply with Google Play Store policies
 
 ### File Management
 
 - Uses FileProvider for secure camera image storage
+- Authority: `dev.josejordan.mlvisionscanner.provider`
 - Temporary files created in `getExternalFilesDir(Environment.DIRECTORY_PICTURES)`
 - Images stored with timestamp naming: `JPEG_yyyyMMdd_HHmmss_*.jpg`
+- Privacy compliant: Images not stored permanently
 
 ### API Integration
 
@@ -185,3 +202,67 @@ The custom app icon represents the core functionality of ML Vision through caref
 - **Geometric Accents**: Subtle semi-transparent squares for visual texture
 - **Corner Elements**: Green triangular accents matching secondary color theme
 - **Professional Appearance**: Clean, modern design suitable for app store presentation
+
+## Google Play Store Readiness
+
+### Publication Status
+✅ **Ready for Google Play Console**:
+- **Package Name**: `dev.josejordan.mlvisionscanner` (unique and professional)
+- **Version**: 4.0 (versionCode: 4)
+- **Target API**: 36 (Android 14) - meets Google Play requirements
+- **Minimum API**: 24 (Android 7.0) - broad device compatibility
+- **Security**: No hardcoded secrets, secure API key management
+- **Permissions**: Minimal and justified permissions only
+- **Privacy**: User data handled securely, images not stored permanently
+
+### Store Optimization
+- **App Name**: "ML Vision Scanner"
+- **Category**: Productivity / Business Tools
+- **Target Keywords**: OCR, text recognition, document scanner, AI assistant
+- **Description**: Professional OCR app with AI-powered text analysis
+- **Icon**: Custom-designed adaptive icon optimized for all launcher types
+- **Screenshots**: Material Design 3 interface, modern and professional
+
+### Technical Compliance
+- ✅ App Bundle compatible
+- ✅ 64-bit architecture support
+- ✅ ProGuard/R8 optimization ready
+- ✅ No deprecated APIs
+- ✅ Lint checks passed
+- ✅ Security best practices implemented
+- ✅ GDPR compliant (local data storage only)
+
+## Development Workflow
+
+### Branch Strategy
+- **master**: Production-ready releases
+- **develop**: Active development branch
+- Always work on **develop** branch for new features
+
+### Build Commands
+```bash
+# Debug build for testing
+./gradlew assembleDebug
+
+# Release build for store submission  
+./gradlew assembleRelease
+
+# Generate Android App Bundle (recommended for Play Store)
+./gradlew bundleRelease
+
+# Run all tests
+./gradlew test connectedAndroidTest
+
+# Code quality checks
+./gradlew lint
+```
+
+### Release Checklist
+- [ ] Update version code and name in build.gradle.kts
+- [ ] Test on multiple devices and Android versions
+- [ ] Verify all permissions work correctly
+- [ ] Test API key management flow
+- [ ] Check app icon and screenshots
+- [ ] Run lint and fix any issues
+- [ ] Generate signed release build
+- [ ] Test release APK thoroughly

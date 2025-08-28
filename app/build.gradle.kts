@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mlvisionkotlin"
-    compileSdk = 34
+    namespace = "dev.josejordan.mlvisionscanner"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.mlvisionkotlin"
+        applicationId = "dev.josejordan.mlvisionscanner"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 36
+        versionCode = 4
+        versionName = "4.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

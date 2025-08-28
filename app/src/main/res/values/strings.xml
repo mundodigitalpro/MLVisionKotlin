@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MLVisionKotlin</string>
+    <string name="app_name">ML Vision Scanner</string>
     <string name="subir_imagen">SUBIR IMAGEN</string>
     <string name="aqu_se_mostrar_el_texto_reconocido">AQUÍ SE MOSTRARÁ EL TEXTO RECONOCIDO</string>
     <string name="here_the_recognized_text_will_be_displayed">HERE THE RECOGNIZED TEXT WILL BE DISPLAYED</string>

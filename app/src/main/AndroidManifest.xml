@@ -27,11 +27,11 @@
         android:theme="@style/Theme.MLVisionKotlin"
         tools:targetApi="31">
         <activity
-            android:name=".AssistantActivity"
+            android:name="dev.josejordan.mlvisionscanner.AssistantActivity"
             android:exported="false"
             android:theme="@style/Theme.MLVisionKotlin" />
         <activity
-            android:name=".MainActivity"
+            android:name="dev.josejordan.mlvisionscanner.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +42,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.mlvisionkotlin.provider"
+            android:authorities="dev.josejordan.mlvisionscanner.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

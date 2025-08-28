@@ -1,4 +1,4 @@
-package com.example.mlvisionkotlin
+package dev.josejordan.mlvisionscanner
 
 import org.junit.Test
 

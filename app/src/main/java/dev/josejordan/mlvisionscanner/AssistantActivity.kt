@@ -1,4 +1,4 @@
-package com.example.mlvisionkotlin
+package dev.josejordan.mlvisionscanner
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -123,15 +123,26 @@ class AssistantActivity : AppCompatActivity() {
 
     // Función para consultar la API de Groq
     private fun queryGroqApi(text: String) {
+        // Validar que la API key no esté vacía
+        if (groqApiKey.isBlank()) {
+            updateConversation("Error", "API Key is empty or invalid")
+            return
+        }
+
         conversation.add(mapOf("role" to "user", "content" to text))
 
         val requestBodyJson = gson.toJson(mapOf("model" to model, "messages" to conversation))
         val requestBody = requestBodyJson.toRequestBody("application/json".toMediaTypeOrNull())
 
+        // Log para debugging (remover en producción)
+        println("API Key length: ${groqApiKey.length}")
+        println("API Key starts with: ${groqApiKey.take(8)}...")
+        println("Request URL: $url")
+        println("Request Body: $requestBodyJson")
+
         val request = Request.Builder()
             .url(url)
             .header("Content-Type", "application/json")
-            .header("Accept", "application/json")
             .header("Authorization", "Bearer $groqApiKey")
             .post(requestBody)
             .build()
@@ -149,7 +160,10 @@ class AssistantActivity : AppCompatActivity() {
                         runOnUiThread { updateConversation("Assistant", assistantResponse) }
                     }
                 } else {
-                    runOnUiThread { updateConversation("Error", "Request failed with code ${response.code}") }
+                    val errorBody = response.body?.string() ?: "No error details"
+                    runOnUiThread { 
+                        updateConversation("Error", "Request failed with code ${response.code}\nDetails: $errorBody")
+                    }
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

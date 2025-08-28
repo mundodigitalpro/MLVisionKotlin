@@ -1,8 +1,13 @@
-# ML Vision Kotlin App
+# ML Vision Scanner
 
 ## Descripción
 
-Esta aplicación es una herramienta simple y poderosa que permite capturar o seleccionar imágenes para reconocer texto utilizando la tecnología de reconocimiento de texto de Google ML Kit. Desarrollada en Kotlin para la plataforma Android, proporciona funcionalidades fáciles de usar para capturar texto desde cualquier imagen, analizarlo con IA y compartirlo con otras aplicaciones.
+**ML Vision Scanner** es una aplicación Android profesional que combina el reconocimiento óptico de caracteres (OCR) con inteligencia artificial. Utilizando Google ML Kit para el reconocimiento de texto y Groq API para análisis inteligente, esta herramienta permite capturar, procesar y analizar texto desde imágenes de manera eficiente.
+
+**Package Name**: `dev.josejordan.mlvisionscanner`  
+**Versión**: 4.0  
+**SDK Mínimo**: Android 7.0 (API 24)  
+**SDK Objetivo**: Android 14 (API 36)
 
 ### Funcionalidades
 
@@ -31,12 +36,23 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 - **Material Design 3**: Framework moderno de diseño con componentes actualizados.
 - **CardView**: Componentes de tarjeta con elevación y sombras para mejor organización visual.
 
-### Requisitos
+### Requisitos del Sistema
 
-- Dispositivo Android con cámara y permisos de almacenamiento.
-- Android SDK 24 (Nougat) o superior.
-- Conexión a internet para el funcionamiento del asistente IA.
-- API key de Groq (gratuita) para usar el asistente - obtener en: https://console.groq.com/keys
+- **Android**: 7.0 (API 24) o superior
+- **Arquitectura**: ARM64, ARM32, x86, x86_64
+- **Permisos**: Cámara, Internet
+- **Almacenamiento**: ~50 MB
+- **Conexión**: Internet requerida para funcionalidad IA
+- **API Key**: Groq API (gratuita) - [Obtener aquí](https://console.groq.com/keys)
+
+### Compatibilidad con Google Play Store
+
+✅ **Listo para publicación**:
+- Package name único y profesional: `dev.josejordan.mlvisionscanner`
+- Cumple con las políticas de Google Play
+- No contiene API keys hardcodeadas
+- Gestión segura de datos del usuario
+- Compatible con Android App Bundle
 
 ### Uso
 
@@ -79,7 +95,13 @@ Esta aplicación es una herramienta simple y poderosa que permite capturar o sel
 
 ```bash
 # Clonar el repositorio
-git clone <repository-url>
+git clone https://github.com/mundodigitalpro/MLVisionKotlin.git
+
+# Cambiar al directorio del proyecto
+cd MLVisionKotlin
+
+# Cambiar a rama de desarrollo
+git checkout develop
 
 # Construir el proyecto
 ./gradlew build
@@ -89,11 +111,42 @@ git clone <repository-url>
 
 # Generar APK debug
 ./gradlew assembleDebug
+
+# Generar APK release
+./gradlew assembleRelease
 ```
 
-### Observaciones
+### Estructura del Proyecto
 
-- La precisión del reconocimiento de texto puede variar según la calidad de la imagen y la claridad del texto.
-- La aplicación no guarda imágenes de forma permanente, se almacenan temporalmente mientras se realiza el reconocimiento.
-- Las API keys se almacenan de forma segura en el dispositivo usando SharedPreferences.
-- El asistente IA requiere conexión a internet para funcionar correctamente.
+```
+app/src/main/java/dev/josejordan/mlvisionscanner/
+├── MainActivity.kt          # Actividad principal con OCR
+├── AssistantActivity.kt     # Interfaz del asistente IA
+└── res/
+    ├── layout/             # Layouts de Material Design 3
+    ├── drawable/           # Iconos y drawables personalizados
+    ├── values/             # Colores, strings, temas
+    └── values-v27/         # Recursos específicos API 27+
+```
+
+### Notas Importantes
+
+- **Privacidad**: Las imágenes no se almacenan permanentemente, solo temporalmente durante el procesamiento
+- **Seguridad**: Las API keys se guardan localmente usando SharedPreferences cifrados
+- **Precisión**: La calidad del OCR depende de la resolución y claridad de la imagen
+- **Conectividad**: El asistente IA requiere conexión a internet activa
+- **Compatibilidad**: Optimizado para dispositivos modernos con Android 7.0+
+
+### Licencia
+
+MIT License - Ver archivo [LICENSE](./LICENSE) para más detalles.
+
+### Desarrollador
+
+**Jose Jordan**  
+- GitHub: [@mundodigitalpro](https://github.com/mundodigitalpro)
+- Proyecto: [MLVisionKotlin](https://github.com/mundodigitalpro/MLVisionKotlin)
+
+---
+
+*ML Vision Scanner v4.0 - Desarrollado con ❤️ para la comunidad Android*

@@ -1,4 +1,4 @@
-package com.example.mlvisionkotlin
+package dev.josejordan.mlvisionscanner
 
 // Importaciones necesarias para la funcionalidad de la app
 import android.Manifest
@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.mlvisionkotlin.databinding.ActivityMainBinding
+import dev.josejordan.mlvisionscanner.databinding.ActivityMainBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
