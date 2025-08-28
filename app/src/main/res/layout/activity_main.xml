@@ -1,106 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="@color/design_default_color_background">
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/background_primary">
 
-    <!-- ImageView en la parte superior del RelativeLayout -->
-    <ImageView
-        android:id="@+id/imageViewId"
+    <!-- Header Section -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:contentDescription="@string/scanned_image"
-        android:scaleType="centerCrop"
-        android:background="@drawable/imageview_background"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="16dp" />
-
-    <!-- ScrollView para el texto, colocado debajo de ImageView y encima de los botones -->
-    <ScrollView
-        android:id="@+id/scrollViewResultText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/imageViewId"
-        android:layout_above="@+id/buttonContainer"
-        android:padding="8dp"
-        android:background="@drawable/scrollview_background">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+        
         <TextView
-            android:id="@+id/resultText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/here_the_recognized_text_will_be_displayed"
-            android:textAlignment="center"
-            android:textColor="@android:color/black" />
+            android:text="ML Vision Scanner"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:letterSpacing="0.02"
+            android:layout_marginBottom="8dp" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capture, scan and analyze text with AI"
+            android:textSize="16sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center" />
+    </LinearLayout>
 
-    </ScrollView>
+    <!-- Image Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true">
+        
+        <ImageView
+            android:id="@+id/imageViewId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/scanned_image"
+            android:scaleType="centerCrop"
+            android:background="@drawable/modern_imageview_background"
+            android:layout_margin="4dp" />
+            
+        <!-- Overlay for empty state -->
+        <LinearLayout
+            android:id="@+id/emptyStateOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/modern_imageview_background"
+            android:layout_margin="4dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📷"
+                android:textSize="48sp"
+                android:layout_marginBottom="12dp" />
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capture or select an image"
+                android:textSize="16sp"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold" />
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="to start text recognition"
+                android:textSize="14sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    <!-- Contenedor LinearLayout para los cuatro botones -->
+    <!-- Text Result Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/card_background">
+            
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="@color/surface_variant"
+                android:gravity="center_vertical">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📄"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="8dp" />
+                    
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Recognized Text"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+            
+            <!-- ScrollView -->
+            <ScrollView
+                android:id="@+id/scrollViewResultText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:scrollbarStyle="insideOverlay">
+
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/here_the_recognized_text_will_be_displayed"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/text_primary"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp" />
+            </ScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Action Buttons -->
     <LinearLayout
         android:id="@+id/buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="true">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/readTextButtonId"
-            android:layout_width="0dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        
+        <!-- Primary Actions Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="90dp"
-            android:text="@string/upload"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:layout_marginEnd="8dp"
-            app:cornerRadius="28dp"
-            app:backgroundTint="@color/cardview_dark_background"
-            android:textColor="@android:color/white" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="12dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/captureImageButtonId"
-            android:layout_width="0dp"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/readTextButtonId"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="📁 Upload"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_primary"
+                android:textColor="@color/text_on_primary"
+                android:elevation="4dp"
+                app:backgroundTint="@null" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/captureImageButtonId"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="📸 Capture"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_secondary"
+                android:textColor="@color/text_on_primary"
+                android:elevation="4dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+        
+        <!-- Secondary Actions Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="90dp"
-            android:text="@string/capture"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:layout_marginEnd="8dp"
-            app:cornerRadius="28dp"
-            app:backgroundTint="@color/cardview_dark_background"
-            android:textColor="@android:color/white" />
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shareButtonId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="90dp"
-            android:text="@string/share"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:layout_marginEnd="8dp"
-            app:cornerRadius="28dp"
-            app:backgroundTint="@color/cardview_dark_background"
-            android:textColor="@android:color/white" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButtonId"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="📤 Share"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_accent"
+                android:textColor="@color/text_on_primary"
+                android:elevation="3dp"
+                app:backgroundTint="@null" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/iaButtonId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minWidth="90dp"
-            android:text="IA"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:cornerRadius="28dp"
-            app:backgroundTint="@color/cardview_dark_background"
-            android:textColor="@android:color/white" />
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iaButtonId"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="🤖 AI Assistant"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_accent"
+                android:textColor="@color/text_on_primary"
+                android:elevation="3dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

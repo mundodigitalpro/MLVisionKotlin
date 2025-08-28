@@ -1,55 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:background="@color/background_primary">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <!-- Header -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/buttonLayout">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_vertical"
+        android:background="@color/surface"
+        android:elevation="4dp">
+        
         <TextView
-            android:id="@+id/conversationTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
-    </ScrollView>
+            android:text="🤖"
+            android:textSize="28sp"
+            android:layout_marginEnd="12dp" />
+            
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI Assistant"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analyze and discuss your scanned text"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+    </LinearLayout>
 
+    <!-- Chat Messages Container -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/card_background">
+            
+            <!-- Chat Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="@color/surface_variant"
+                android:gravity="center_vertical">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💬"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp" />
+                    
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Conversation"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+            
+            <!-- Messages ScrollView -->
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:scrollbarStyle="insideOverlay">
+
+                <TextView
+                    android:id="@+id/conversationTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/text_primary"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp" />
+            </ScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Input Section -->
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/surface"
+        android:elevation="8dp">
 
-        <Button
+        <!-- API Key Management Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/manageApiKeyButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="⚙️ Gestionar API Key"
-            android:layout_marginBottom="8dp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:layout_height="48dp"
+            android:text="⚙️ Manage API Key"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_accent"
+            android:textColor="@color/text_on_primary"
+            android:elevation="2dp"
+            app:backgroundTint="@null" />
 
-        <LinearLayout
-            android:id="@+id/inputLayout"
+        <!-- Message Input Container -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/userInputEditText"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="false">
+            
+            <LinearLayout
+                android:id="@+id/inputLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Your message" />
+                android:orientation="horizontal"
+                android:background="@color/card_background"
+                android:gravity="center_vertical"
+                android:padding="4dp">
 
-            <Button
-                android:id="@+id/sendButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Send" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/userInputEditText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:hint="Type your message..."
+                    android:textSize="15sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine|textCapSentences" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="📤"
+                    android:textSize="18sp"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/button_primary"
+                    android:textColor="@color/text_on_primary"
+                    android:elevation="4dp"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="26dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>

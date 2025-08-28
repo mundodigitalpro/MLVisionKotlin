@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed State -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/primary_dark"
+                android:endColor="@color/primary"
+                android:angle="135" />
+            <corners android:radius="12dp" />
+            <stroke android:width="0dp" />
+        </shape>
+    </item>
+    
+    <!-- Default State -->
+    <item>
+        <layer-list>
+            <!-- Shadow Layer -->
+            <item android:top="2dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/card_shadow" />
+                    <corners android:radius="12dp" />
+                </shape>
+            </item>
+            <!-- Button Layer -->
+            <item android:bottom="2dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="@color/primary"
+                        android:endColor="@color/primary_dark"
+                        android:angle="135" />
+                    <corners android:radius="12dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
